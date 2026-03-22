@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>War Simulation</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <script type="importmap">
+        {
+            "imports": {
+                "gameState": "../scripts/core/gameState.js",
+                "intelSystem": "../scripts/sim/intelSystem.js",
+                "moveSystem": "../scripts/sim/moveSystem.js",
+                "canvasRenderer": "../scripts/ui/canvasRenderer.js",
+                "inputHandler": "../scripts/ui/inputHandler.js"
+            }
+        }
+    </script>
+
+    <script type="module" src="../scripts/main.js"></script>
+</head>
+<body>
+    <div class="tablet-frame">
+        <div class="screen-overlay"></div>
+
+        <canvas id="map"></canvas>
+
+        <div class="ui-layer">
+            <div id="status-bar">
+                <div id="clock">00:00:00</div>
+                <div id="location">SECTOR: 7-G</div>
+                <div id="signal-strength">SIGNAL: NOMINAL</div>
+            </div>
+
+            <div id="sidebar">
+                <div id="unit-info">
+                    <h3>SYSTEM READY</h3>
+                    <p id="selection-text">Select a squad or base on the map to issue command overrides.</p>
+
+                    <div id="stats-display" class="hidden">
+                        <p><span id="stat-label-1">SUPPLIES</span>: <span id="stat-value-1">--</span></p>
+                        <p><span id="stat-label-2">TASK</span>: <span id="stat-value-2">NONE</span></p>
+                        <p><span id="stat-label-3">STATUS</span>: <span id="stat-value-3">IDLE</span></p>
+                        <p><span id="stat-label-4">POSITION</span>: <span id="stat-value-4">--</span></p>
+                    </div>
+
+                    <hr style="border: 0; border-top: 1px solid var(--dim-green); margin-bottom: 20px;">
+
+                    <div id="order-panel" class="hidden">
+                        <button class="cmd-btn" id="btn-move">Set Waypoint</button>
+                        <button class="cmd-btn" id="btn-supply">Route Supplies</button>
+                        <button class="cmd-btn" id="btn-cancel" style="border-color: var(--alert-red); color: var(--alert-red);">Cancel Orders</button>
+                    </div>
+                </div>
+
+                <div id="event-log" style="font-size: 0.7rem; opacity: 0.7; pointer-events: none;">
+                    [SYSTEM] LOGISTICS CORE ONLINE...
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
